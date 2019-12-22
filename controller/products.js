@@ -28,4 +28,4 @@ exports.getProductsPage = (req, res, next) => {
       activeShop: true,
       productCSS: true
     });
-  }
+}
