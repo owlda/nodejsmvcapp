@@ -11,6 +11,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const clientRoutes = require('./routes/client');
+const errorController = require('./controller/error');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -18,9 +19,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(clientRoutes);
-
-app.use((req, res, next) => {
-  res.status(404).render('404', { pageTitle: 'Page Not Found' });
-});
+app.use(errorController.gerError404);
 
 app.listen(3000);
