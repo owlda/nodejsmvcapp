@@ -2,10 +2,12 @@ const productsInModel = [];
 
 module.exports = class Product{
 
-    constructor(t){
+    constructor(title, price, desc, image){
             
-        this.title = t;
-
+        this.title = title;
+        this.price = price;
+        this.desc = desc;
+        this.image = image;
 
     }
 

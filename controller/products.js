@@ -15,7 +15,7 @@ exports.getAddProductPage = (req, res, next) => {
 // POST addProduct page
 exports.postAddProductPage = (req, res, next) => {    
     
-    const product = new Product(req.body.title);
+    const product = new Product(req.body.title, req.body.price, req.body.desc, req.body.image);
     product.save();
     res.redirect('/');
 }
@@ -33,5 +33,5 @@ exports.getProductsPage = (req, res, next) => {
       activeShop: true,
       productCSS: true
   });
-  
+  console.log(products);
 }
