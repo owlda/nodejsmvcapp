@@ -83,8 +83,12 @@ main {
 }
 
 .card__actions {
+  
     padding: 1rem;
     text-align: center;
+    text-decoration: none;
+    
+
 }
 
 .card__actions button,
@@ -105,4 +109,34 @@ main {
 .btn:active {
   background-color: #00695c;
   color: white;
+}
+form.search input[type=text] {
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid grey;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+}
+
+form.search button {
+  float: left;
+  width: 20%;
+  padding: 5px;
+  background: rgb(8, 8, 8);
+  color: rgb(252, 244, 244);
+  font-size: 12px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.search button:hover {
+  background: rgb(196, 185, 41);
+}
+
+form.search::after {
+  content: "";
+  clear: both;
+  display: table;
 }

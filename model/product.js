@@ -1,4 +1,5 @@
 const getDB = require('../util/database').mongoConnectFunctionGetDB;
+const mongodb = require('mongodb');
 
 module.exports = class Product{
 
@@ -27,12 +28,24 @@ module.exports = class Product{
         .find()
         .toArray()
         .then(products => {
-
-            console.log( products );
-            return products;
-            
+            return products;            
         })
         .catch(error => { console.log(error) } );  
+    }
+
+    static readOne(prodid){
+
+        const _db = getDB();
+        console.log(prodid);
+        return _db
+        .collection('products')
+        .find({ _id: new mongodb.ObjectId(prodid) })
+        .next()
+        .then(product => {            
+            return product;
+        })    
+        .catch(error => { console.log(error);
+        }); 
     }
 
 }
