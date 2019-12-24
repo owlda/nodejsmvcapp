@@ -19,9 +19,20 @@ module.exports = class Product{
     }
 
     static readAll(){
+
         const _db = getDB();
-        return _db;
-       
+
+        return _db
+        .collection('products')
+        .find()
+        .toArray()
+        .then(products => {
+
+            console.log( products );
+            return products;
+            
+        })
+        .catch(error => { console.log(error) } );  
     }
 
 }
