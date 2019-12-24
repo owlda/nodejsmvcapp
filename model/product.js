@@ -1,4 +1,4 @@
-const productsInModel = [];
+const getDB = require('../util/database').mongoConnectFunctionGetDB;
 
 module.exports = class Product{
 
@@ -13,12 +13,26 @@ module.exports = class Product{
 
     save(){
            
-        productsInModel.push(this);
+       const _db = getDB();
+       _db.collection('products').insertOne(this);
+
     }
 
     static readAll(){
-        
-        return productsInModel;
+
+        const _db = getDB();
+
+        return _db
+        .collection('products')
+        .find()
+        .toArray()
+        .then(products => {
+
+            console.log( products );
+            return products;
+            
+        })
+        .catch(error => { console.log(error) } );  
     }
 
 }

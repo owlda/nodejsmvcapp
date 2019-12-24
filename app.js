@@ -12,7 +12,7 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const clientRoutes = require('./routes/client');
 const errorController = require('./controller/error');
-const mongoConnect = require('./util/database');
+const mongoConnectFunction = require('./util/database').mongoConnectFunction;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,8 +22,7 @@ app.use(shopRoutes);
 app.use(clientRoutes);
 app.use(errorController.gerError404);
 
-mongoConnect(result => {
-    console.log(result);
+mongoConnectFunction (() => {
     app.listen(3000);
 });
 
