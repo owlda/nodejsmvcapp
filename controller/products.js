@@ -23,15 +23,19 @@ exports.postAddProductPage = (req, res, next) => {
 // GET Products
 exports.getProductsPage = (req, res, next) => {
   
-  const products = Product.readAll();
+  Product.readAll()
+  .then(
+    products => {       
+      res.render('shop', {
+        prods: products,
+        pageTitle: 'Shop',
+        path: '/',        
+        activeShop: true,
+        productCSS: true
+    });  
   
-  res.render('shop', {
-      prods: products,
-      pageTitle: 'Shop',
-      path: '/',
-      hasProducts: products.length > 0,
-      activeShop: true,
-      productCSS: true
-  });
-  console.log(products);
+  }).catch( err => { console.log(err)});
+  
+
+  
 }
