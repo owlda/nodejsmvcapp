@@ -6,9 +6,9 @@ const adminData = require('./admin');
 
 const router = express.Router();
 
-const productController = require('../controller/products');
+const clientController = require('../controller/client');
 
 // GET Products page
-router.get('/', productController.getProductsPage);
+router.get('/clients', clientController.getClientsPage);
 
 module.exports = router;
