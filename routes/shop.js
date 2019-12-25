@@ -11,4 +11,7 @@ const productController = require('../controller/products');
 // GET Products page
 router.get('/', productController.getProductsPage);
 
+// GET Product by title
+router.get('/details/:productid', productController.getProduct);
+
 module.exports = router;
