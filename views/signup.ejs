@@ -1,0 +1,39 @@
+<%- include('includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+    <%- include('includes/navigation-clients.ejs') %>
+
+<form style="width: 60%; margin-left: 20%">
+    <div class="form-group">
+        <label>Your name</label>
+        <input name="nameModal" class="form-control" placeholder="Name" type="text" id="name-modal" >
+    </div>
+    <div class="form-group">
+        <label>Your surname</label>
+        <input name="surnameModal" class="form-control" placeholder="Surname" type="text" id="surname-modal">
+    </div>
+    <div class="form-group">
+        <label>Your email</label>
+        <input name="emailModal" class="form-control" placeholder="Email" type="email" id="email-modal">
+    </div>
+    <div class="form-group">
+        <label>Your password</label>
+        <input name="passModal" class="form-control" placeholder="******" type="password" id="pass-modal">
+    </div>
+    <div class="form-group">
+        <label>Repeat your password</label>
+        <input name="pass2Modal" class="form-control" placeholder="******" type="password" id="pass2-modal">
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label> <input type="checkbox"> Save password </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" name="POST_USER_DB" class="btn btn-primary btn-block">Signup</button>
+    </div>
+</form>
+</body>
+<%- include('includes/end.ejs') %>
